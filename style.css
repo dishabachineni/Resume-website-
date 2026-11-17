@@ -1,0 +1,219 @@
+/* ===== COLOUR PALETTE AND FONTS (change these to restyle the whole site) ===== */
+:root {
+  --burgundy: #6D1A36;     /* navbar, buttons, links */
+  --burgundy-dark: #4A1024;/* hover states, footer */
+  --gold: #B08D57;         /* underlines and card borders */
+  --gold-light: #E0C48F;   /* hover colour on dark backgrounds */
+  --ink: #2B1B20;          /* main text */
+  --muted: #6B565C;        /* secondary text */
+  --paper: #F7F3F2;        /* page background */
+  --card-bg: #FFFFFF;
+  --font: "Times New Roman", Times, serif;
+}
+
+/* ===== ELEMENT SELECTORS: apply to every tag of that type ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3 {
+  font-family: var(--font);
+  line-height: 1.25;
+  color: var(--burgundy);
+}
+
+h2 {
+  font-size: 1.9rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
+}
+
+a {
+  color: var(--burgundy);
+}
+
+a:hover {
+  color: var(--burgundy-dark);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ===== NAVIGATION BAR (flexbox + sticky positioning) ===== */
+.navbar {
+  position: sticky;      /* stays at the top while scrolling */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  background: var(--burgundy);
+  border-bottom: 3px solid var(--gold);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--gold-light);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+/* ===== PAGE LAYOUT ===== */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 3.5rem 0 1rem;
+}
+
+/* ===== ID SELECTOR: styles only the intro section ===== */
+#hero {
+  padding-top: 5rem;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin: 0 0 0.5rem;
+}
+
+.tagline {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.intro {
+  max-width: 62ch;     /* keeps lines short and readable */
+}
+
+/* ===== CLASS SELECTORS: reusable components ===== */
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: var(--burgundy);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background: var(--burgundy-dark);
+  color: #FFFFFF;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.25rem 1.5rem;
+  background: var(--card-bg);
+  border-left: 5px solid var(--burgundy);
+  border-radius: 4px;
+}
+
+.card p {
+  margin: 0.4rem 0 0;
+}
+
+.card ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-list li {
+  padding: 0.45rem 1.1rem;
+  background: var(--card-bg);
+  border: 2px solid var(--burgundy);
+  border-radius: 999px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--burgundy-dark);
+  color: #FFFFFF;
+  border-top: 3px solid var(--gold);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ===== SMALL SCREENS ===== */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+}
